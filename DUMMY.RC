@@ -1,0 +1,86 @@
+   
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+/*       Resource file for DUMMY Objects                                      */
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+#define INCL_WINSYS
+#include <os2.h>
+
+#include "dummyi.h"
+/*---------------------------------------------------------*/
+/* In order to create a dialog window we need the following*/
+/* resource definitions:                                   */
+/*---------------------------------------------------------*/
+                                
+/*----------------------------------------------------*/
+/* A dialog template in a .DLG file                   */
+/*----------------------------------------------------*/
+rcinclude dummy.dlg
+
+
+/*----------------------------------------------------*/
+/* An icon definition in a .ICO file                  */
+/*----------------------------------------------------*/
+ICON DLG_MAIN dummy.ico
+
+
+/*----------------------------------------------------*/
+/* An action bar resource definition                  */
+/*----------------------------------------------------*/
+MENU DLG_MAIN PRELOAD
+BEGIN
+   SUBMENU  "~File", MN_FILE 
+   BEGIN
+     MENUITEM "~New"           , MN_FILENEW
+     MENUITEM "~Open reduced"  , MN_FILEOPEN
+     MENUITEM SEPARATOR                 
+     MENUITEM "~Exit \tF3"     , MN_FILEEXIT
+   END
+   SUBMENU  "~Help", 100      
+   BEGIN
+     MENUITEM "~Extended help..."  , SC_HELPEXTENDED, MIS_SYSCOMMAND
+     MENUITEM "~Keys help..."      , SC_HELPKEYS    , MIS_SYSCOMMAND
+     MENUITEM "Help ~index..."     , SC_HELPINDEX   , MIS_SYSCOMMAND
+   END
+END
+
+
+/*----------------------------------------------------*/
+/* An accelerator table definition                    */
+/*----------------------------------------------------*/
+ACCELTABLE DLG_MAIN PRELOAD
+BEGIN
+    VK_F3,     MN_FILEEXIT,   VIRTUALKEY
+END                                            
+
+
+/******************************************************/
+/******************************************************/
+/* Definition of Help Table                           */
+/******************************************************/
+/******************************************************/
+HELPTABLE DUMMY_HELPTABLE
+BEGIN
+    HELPITEM DLG_MAIN,        SUBTABLE_MAIN, HID_MAIN     
+    HELPITEM DLG_DIALOG,      SUBTABLE_DIALOG, HDIALOG     
+END
+
+/******************************************************/
+/******************************************************/
+/* Definition of Help subtable                        */
+/******************************************************/
+/******************************************************/
+
+HELPSUBTABLE SUBTABLE_MAIN
+BEGIN
+        HELPSUBITEM     MN_FILENEW,              HMN_FILENEW
+        HELPSUBITEM     MN_FILEOPEN,             HMN_FILEOPEN
+        HELPSUBITEM     MN_FILEEXIT,             HMN_FILEEXIT 
+END
+ 
+HELPSUBTABLE SUBTABLE_DIALOG
+BEGIN
+        HELPSUBITEM     EF_DUMMY,                HEF_DUMMY   
+END
+

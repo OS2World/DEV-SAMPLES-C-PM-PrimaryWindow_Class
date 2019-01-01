@@ -1,0 +1,178 @@
+                             Demonstration
+                                of the
+                           PrimaryWindow Class
+
+
+
+OBJECTIVE
+
+Based on a sample program written in C you should realize:
+
+-   how easy it is to create CUA windows (not dialog boxes!) with PM
+    controls within the client area
+
+-   how you should structure your Presentation Manager applications
+    correctly if you want to be successful and efficient in PM application
+    development.
+
+
+
+WORKING ENVIRONMENT
+
+The sample program works with a Dynamic Link Library (DLL). Please make sure
+that the DLL is in a directory mentioned in the LIBPATH statement in
+CONFIG.SYS.
+
+If you want to modify the sample dialog later on, make sure that the path to
+the resource compiler (RC.EXE) is set correctly.
+
+
+
+COMPONENTS OF THE SAMPLE PROGRAM
+
+-   TEST.C, TEST,EXE
+    Source code sample for a PM main program. This program generates a
+    standard window that simulates a SAA/CUA workplace environment. The
+    entire code for the primary  window behavior is stored in the DLL.
+
+-   DUMMY.C, DUMMY.DLL
+    The DLL DUMMY represents the DUMMY window class, which uses the
+    PrimaryWindow Class. In DUMMY.C you see that the DUMMY class is described
+    by a creation function (CreateDummy) and a window procedure (DlgWinProc).
+    Note that the window procedure contains only application-specific code.
+    All PM-specific code for
+
+        -       Window generation
+        -       Frame size limitation
+        -       Horizontal and vertical scrolling
+        -       Scrollbar calibration
+        -       Action bar handling
+        -       Accelerator and mnemonic handling
+        -       CUA standard behaviors
+
+    is inherited from the PrimaryWindow object by calling the SeiDefDlgProc
+    instead of the WinDefWindowProc or WinDefDlgProc.
+
+    If a primary window is created that is larger than the screen, paging within
+    the client area becomes very easy through the use of the function SeiMoveToTop.
+    Parameters for this function are the client window handle and the ID of the
+    control which will be moved to the top. An additional parameter determines,
+    whether the control should always be moved or only if it is outside of the
+    visible area of the client window.
+
+    The PrimaryWindow Class also provides an easy interface for direct manipulation
+    (drag/drop) of windows. The methods hide the complexity of the standard
+    drag/drop mechanism and Dynamic Data Exchange (DDE) and cover a wide range of
+    your direct manipulation needs.
+
+    The constructor function SeiCreateDialogWindow is the only function you have
+    to invoke in order to create a primary window. Its parameter structure is
+    adapted to the familiar parameter structure of WinCreateWindow.
+    The second constructor function (SeiCreateSmallDummy) shows how to create a dialog window with a size different than the original dialog template.
+
+-   DUMMY.H
+    Interface file to the class DUMMY. It only contains the prototype definition
+    of the constructor function and the type definition of any input parameter
+    structure. This file will also contain all message definitions for further
+    communication with DUMMY objects.
+
+-   DUMMY.RC
+    Resource file for objects of the DUMMY class. Here you find the definitions
+    for the
+        -   icon, that should appear if the dummy window is minimized
+        -   action bar
+        -   accelerator table.
+
+-   DUMMY.DLG
+    This file contains the dialog template that had been created by the OS/2
+    Dialogbox Editor. It contains one or more dialog templates. These templates
+    determine
+        -   the type and position of controls within the client area of
+            the primary window
+        -   the frame controls ( titlebar, scrollbars, system icon,
+            min/max icon) which will appear in the primary window
+        -   the frame style (whether the window should be visible or not)
+        -   the border (sizeable or not sizeable).
+
+-   DUMMYI.H, DUMMYD.H
+    Class internal interface files, that contain the symbolic names for
+    action bar entries and the control identifiers in the client area. The
+    file DUMMYD.H is created and maintained exclusively by the Dialogbox
+    Editor. Whenever you add an entry to the action bar, you must also define
+    its symbolic name in DUMMYI.H.
+
+-   TEST.HLP, DUMMY.HLP
+    These files contain the online help information that have been created
+    with the OS/2 Information Presentation Facility (IPF). You will realize
+    that the sample program uses more than one help library, since it is
+    very likely that large objectoriented PM applications will work in the
+    same manner. To get support for multiple help libraries, you invoke
+    SeiCreateHelpInstance (once for the application) and SeiChangeHelpTable
+    (each time a new help library is used).
+
+IN THE DEMO VERSION THE HELP WINDOW WILL BE DESTROYED WHENEVER AN APPLICATION
+WINDOW BECOMES ACTIVE. IN THE FINAL VERSION OF THE PRODUCT, THE HELP WINDOW
+WILL ONLY BE DESTROYED WHEN A NEW HELP LIBRARY IS LOADED.
+
+
+
+PROGRAMMER'S RESPONSIBILITIES TO CREATE A PRIMARY WINDOW
+
+First of all, you have to determine which controls and frame controls (without
+the action bar) should be available in the primary  window. The layout of the
+primary window and the cursor navigation will be developed exclusively with
+the Dialogbox Editor.
+
+Now you define the layout of the actionbar (MENU statement), minimize icon
+(ICON statement) and accelerator table (ACCELTABLE statement) in the .RC file
+with a regular text editor. At the same time you define the symbolic names for your entries of the act
+ionbar pull-downs in the internal header file *I.H.
+
+Now all Resources for a primary window are defined.
+
+Now you write the creation function, that  usually contains only the invocation
+of SeiCreateDialogWindow. The next function you have to write is the window
+procedure for the primary window. This procedure looks like a normal dialog
+window procedure and handles only application specific messages like
+WM_INITDLG, WM_COMMAND, WM_CONTROL AND WM_DESTROY.
+
+The productivity of an application developer is improved dramatically through
+the use of the PrimaryWindow class, because only basic PM skills are necessary
+to write sophisticated SAA/CUA workplace applications.
+
+
+ADDITIONAL TESTING
+
+Test the behavior of the PrimaryWindow class with your own primary  windows.
+Just invoke the Dialogbox Editor and edit DUMMY.RES, or change the menu or
+icon definition in DUMMY.RC.  You can even create a dialog box that is larger
+than the screen.
+
+Invoke MAKE after you have changed the resource definitions of the DUMMY
+class, start the test application again, and you will see your modified dialog
+box (and action bar and icon) in a CUA conforming primary window.
+
+Please notice the mnemonics in static controls. If you press Alt+mnemonic,
+the next control that is enabled  for character input receives the keyboard
+focus. If the keyboard focus control is outside of the visible part of the
+client area, the client area is scrolled to make the control visible.
+
+Try also the direct manipulation between different test windows by clicking
+mouse button 2 in the client area of a PrimaryWindow object. Drag the mouse
+pointer and release button 2 over a "good" target window and notice the data
+transfer. The "good" target window can be minimized and can be in a different
+instance of the test application.
+
+
+               HAVE FUN WITH THE PRIMARYWINDOW CLASS AND ENJOY
+              APPLICATION DEVELOPMENT UNDER PRESENTATION MANAGER !
+
+
+
+For more information contact:
+
+                 SES Software Engineering Services Berlin
+                     Koenigsallee 49,  1000 Berlin 33
+                Tel: (030) 826 40 63 - FAX: (030) 825 30 14
+
+

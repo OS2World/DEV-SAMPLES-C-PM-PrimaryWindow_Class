@@ -1,0 +1,156 @@
+                          THE PRIMARY WINDOW CLASS
+
+
+PRODUCT HIGHLIGHTS
+
+-   The PrimaryWindow Class improves the productivity of SAA/CUA-conforming 
+    application development with 'C' under OS/2 Presentation Manager
+
+-   Separates window management code from application code for easier 
+    maintenance
+
+-   Reduces initial learning time and training cost for PM developers
+
+-   Supports the introduction of standards in object-oriented application 
+    development
+
+-   Uses only the OS/2 Dialogbox Editor to create sizeable and CUA-conforming
+    primary and secondary windows
+
+-   Integrates the OS/2 online help support for multiple help libraries in a 
+    transparent way
+
+-   Provides automatic scrolling, paging, and sizing support for client areas
+
+-   Reduces the programming effort for direct manipulation (Drag/Drop)
+
+-   Handles windows, controls, action bar, mnemonics, and accelerators
+
+-   Is optimized for size and high performance
+
+-   Provides on-line documentation integrated into the IBM OS/2 Programming 
+    Reference
+
+-   License per development workstation or LAN-Server - No runtime license!
+
+
+
+PRODUCT DESCRIPTION
+
+The PrimaryWindow Class is a productivity tool for developers of object-
+oriented C applications under OS/2 Presentation Manager. It is the answer to 
+the urgent need for CUA conforming primary and secondary window objects that 
+contain dialog controls and frame controls and react like regular, sizeable 
+windows.  Only the OS/2 Dialogbox Editor is needed to design windows and 
+dialog boxes.    
+
+By using the PrimaryWindow Class you reduce the number of open windows on 
+your screen and improve the end user's acceptance of a windowing user interface. 
+
+All CUA-conforming window behavior is built into the PrimaryWindow Class DLL 
+and is separated from the actual application code. Hence the application 
+developer can focus exclusively on the application-specific logic (and not on
+some "strange" behavior of Presentation Manager). 
+
+In order to design the layout of dialog windows, the programmer will use the 
+OS/2 Dialogbox Editor as a "window painter". The action bar and icon 
+definition is done with a text editor of your choice. 
+
+The PrimaryWindow Class does not contain a source code generator, but a set 
+of well documented and optimized window procedure templates which will be 
+expanded with application-specific code. These procedure templates also 
+introduce the application developer to proper object-oriented programming 
+techniques with C under OS/2 Presentation Manager. All code examples and 
+templates fully  conform to OS/2 programming standards. 
+
+ All PM-specific code for:
+ 
+	-   Window generation
+	-   Frame size limitation 
+	-   Horizontal and vertical scrolling
+	-   Scrollbar calibration 
+	-   Action bar handling
+	-   Accelerators and mnemonics handling
+	-   CUA standard behaviors for the workplace environment
+
+is inherited from SE International's PrimaryWindow Class.
+ 
+The PrimaryWindow Class contains additional functions to ensure that the 
+dialog control with the keyboard focus is always visible in the client area. 
+These services are very important if your application deals with large dialog 
+windows that may even extend beyond screen size. 
+
+The PrimaryWindow Class supports the OS/2 online help facility and allows the 
+embedding of multiple help libraries. The class also contains methods that 
+reduce the programming effort for direct manipulation with the DDE. 
+
+The PrimaryWindow Class also provides online documentation that fully 
+conforms to the OS/2 documentation standards for  software objects. The class
+documentation can be easily incorporated into the IBM OS/2 Online Programming
+Reference. 
+
+The PrimaryWindow Class is also available as a 32-bit development tool for 
+OS/2 Version 2.0 !
+
+
+PRODUKT PACKAGING
+
+The PrimaryWindow Class is shipped with the following components:
+-   a dynamic link library (.DLL)
+
+-   on object file (.OBJ), if the class will be linked statically into an 
+    .EXE file
+
+-   an import library (.LIB)
+
+-   an interface file (.H)
+
+-   an online documentation (.INF), that can be incorporated into the IBM 
+    OS/2 Programming Reference
+
+-   the source data for the documentation file (.IPF), if the documentation 
+    will be included into other online documents
+
+-   a set of sample programs and templates, that illustrate the usage of the 
+    PrimaryWindow Class and that show proper object-oriented programming 
+    techniques for application development with C under PM.
+
+The PrimaryWindow Class is packaged for single development workstations or as 
+a LAN-Server product to reduce the cost per developer workstation. All users 
+on the server's LAN domain have access to the PrimaryWindowClass. The Dynamic
+Link Library can be incorporated in any final software product without 
+purchasing additional licenses.   
+
+
+
+
+ADDITIONAL SUPPORT
+
+We provide indepth and compact inhouse PM Programming Training  for OS/2 
+Presentation Manager application developers. We also offer consulting in 
+CUA-conforming user interface design. Within one week you can become a 
+skilled developer of object-oriented C applications under PM and appreciate 
+the power of this modern and truly multitasking operating system. 
+
+             Ask for our PM TRAINING class descriptions !
+
+
+
+For more information please contact:
+
+                        Hans J. Eisenhuth
+                      SE International, Inc.
+                   621 NW 53rd Street, Suite 240
+                      Boca Raton, FL 33487
+             Tel: (407) 241-3428, Fax: (407) 997-8945
+
+				OR
+
+           SES Software Engineering Services GmbH Berlin
+                          Koenigsallee 49, 
+                     D-1000 Berlin 33, Germany
+           Tel: +49 30 826 40 63, Fax: +49 30 825 30 14
+
+
+
+

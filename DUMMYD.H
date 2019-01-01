@@ -1,0 +1,15 @@
+#define EF_DUMMY      277
+#define DID_OK        1
+#define DLG_DIALOG    276
+#define DLG_MAIN      261
+#define EF_NAME       262
+#define EF_STREET     263
+#define EF_CITY       264
+#define CO_STATE      265
+#define EF_ZIP        266
+#define RB_MONTHLY    270
+#define RB_YEARLY     271
+#define CB_CHECKING   272
+#define CB_SAVINGS    273
+#define CB_BONDS      274
+#define LB_ACCOUNTS   275

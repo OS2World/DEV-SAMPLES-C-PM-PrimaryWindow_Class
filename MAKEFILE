@@ -1,0 +1,3 @@
+dummy.dll: dummy.rc dummy.dlg
+      rc dummy.rc dummy.dll
+
